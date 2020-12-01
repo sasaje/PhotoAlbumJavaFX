@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label layoutX="26.0" layoutY="24.0" text="Photo album">
+         <font>
+            <Font name="Bodoni 72 Oldstyle Book" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="26.0" layoutY="57.0" text="Choose image from dropdown">
+         <font>
+            <Font name="Bodoni 72 Oldstyle Book" size="20.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="imageChoiceBox" layoutX="26.0" layoutY="115.0" onDragDetected="#chooseImage" prefWidth="150.0">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="Elephant" />
+               <String fx:value="Girafe" />
+               <String fx:value="Zebra" />
+               <String fx:value="Lion" />
+               <String fx:value="Hippo" />
+               <String fx:value="Rhino" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
+      <TextField fx:id="imageNameTextField" layoutX="27.0" layoutY="163.0" prefHeight="26.0" prefWidth="150.0" promptText="imageName.jpg">
+         <font>
+            <Font name="Bodoni 72 Book" size="13.0" />
+         </font>
+      </TextField>
+      <Button fx:id="showImageButton" layoutX="27.0" layoutY="224.0" mnemonicParsing="false" onAction="#showImage" onMouseClicked="#addEventToLog" prefHeight="32.0" prefWidth="150.0" text="Show image">
+         <font>
+            <Font name="Bodoni 72 Book" size="13.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="imageView" fitHeight="286.0" fitWidth="350.0" layoutX="227.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="logButton" layoutX="27.0" layoutY="347.0" mnemonicParsing="false" onAction="#showLog" style="-fx-background-color: none;" text="Show log">
+         <font>
+            <Font name="Bodoni 72 Book" size="13.0" />
+         </font>
+      </Button>
+      <Label fx:id="errorMessage" layoutX="27.0" layoutY="277.0" opacity="0.0" text="Please select an image" textFill="#b90c0c">
+         <font>
+            <Font name="Bodoni 72 Oldstyle Book" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
