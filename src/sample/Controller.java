@@ -88,7 +88,7 @@ public class Controller {
         for (int i = 0; i < clickCounter; i++) {
             output.println("Event added to imageLog.txt");
             Date dateLog = new Date();
-            output.println(dateLog + " ---> Showst " + (String) imageChoiceBox.getValue());
+            output.println(dateLog + " ---> Shows test " + (String) imageChoiceBox.getValue());
         }
 
         //close the file

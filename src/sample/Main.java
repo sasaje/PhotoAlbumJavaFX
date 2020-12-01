@@ -24,6 +24,9 @@ public class Main extends Application {
         imageChoiceBox.getItems().add("Hippo");
         imageChoiceBox.getItems().add("Rhino");
 
+
+
+
         Parent root = FXMLLoader.load(getClass().getResource("/sample/photoAlbumGui.fxml"));
         primaryStage.setTitle("Photo Album");
         primaryStage.setScene(new Scene(root, 600, 400));
