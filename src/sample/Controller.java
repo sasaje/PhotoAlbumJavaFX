@@ -14,6 +14,8 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Controller {
+    int clickCounter = 0;
+
     @FXML
     private ChoiceBox<String> imageChoiceBox;
 
@@ -40,6 +42,7 @@ public class Controller {
     void showImage(ActionEvent event) throws IOException, NullPointerException{
         writeData();
 
+        //console log of events
         String image = (String) imageChoiceBox.getValue();
         Date d = new Date();
         System.out.println(d + "---> Shows " + image);
@@ -65,28 +68,28 @@ public class Controller {
     }
 
     @FXML
-    void addEventToLog(MouseEvent event){
-        showImageButton.getOnMouseClicked();
+    void addEventToLog(MouseEvent event) throws IOException {
+        System.out.println("ACTION: showImageButton clicked!");
+        clickCounter++;
     }
 
     public void writeData() throws java.io.IOException {
         java.io.File file = new java.io.File("imageLog.txt");
 /*        if(file.exists()) {
             System.out.println("File " + file + " already exists");
-            // System.exit(1);
         }
 */
         //Create a file
         java.io.PrintWriter output = new java.io.PrintWriter(file);
 
+        // TODO this must be repeated every time the imageShowButton is clicked. - it shows the log for the recent image
         //write formatted output to the file
-        output.println("Test!");
 
-        // TODO this must be every time the imageShowButton is clicked. - it shows the log for the recent image
-        Date dateLog = new Date();
-        output.println(dateLog + " ---> Shows " + (String) imageChoiceBox.getValue());
-
-//      showImageButton.setOnMouseClicked(event -> System.out.println(event.getClickCount()));
+        for (int i = 0; i < clickCounter; i++) {
+            output.println("Event added to imageLog.txt");
+            Date dateLog = new Date();
+            output.println(dateLog + " ---> Showst " + (String) imageChoiceBox.getValue());
+        }
 
         //close the file
         output.close();
@@ -107,6 +110,4 @@ public class Controller {
         //Close the file
         input.close();
     }
-
-
 }
