@@ -9,14 +9,13 @@
 package sample;
 
 import java.io.FileNotFoundException;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Filehandling {
     public static int clickCounter = 0;
 
     public void saveData(LogData logData) throws java.io.IOException {
-        java.io.File file = new java.io.File("/imagelog.txt");
+        java.io.File file = new java.io.File("imagelog.txt");
         java.io.PrintWriter output = new java.io.PrintWriter(file); //Create a file
 
         // TODO this must be repeated every time the imageShowButton is clicked. - it shows the log for the recent image
@@ -31,7 +30,7 @@ public class Filehandling {
     }
 
     public LogData loadData() throws FileNotFoundException {
-        java.io.File file = new java.io.File("/imagelog.txt");
+        java.io.File file = new java.io.File("imagelog.txt");
         Scanner input = new Scanner(file); //Create a Scanner for the file
 
         //Read data from a file
