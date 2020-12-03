@@ -2,19 +2,15 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.io.*;
-import java.util.Date;
-import java.util.Scanner;
+
+import static sample.Filehandling.clickCounter;
 
 public class Controller {
-    int clickCounter = 0;
 
     @FXML
     private ChoiceBox<String> imageChoiceBox;
@@ -35,25 +31,34 @@ public class Controller {
     private Label errorMessage;
 
     @FXML
+    private TextArea showLogTextArea;
+
+    @FXML
     void chooseImage(MouseEvent event) {
     }
 
     @FXML
-    void showImage(ActionEvent event) throws IOException, NullPointerException{
-        writeData();
+    void showImage(ActionEvent event) throws IOException{
+        //removes log
+        showLogTextArea.setOpacity(0);
 
         //console log of events
-        String image = (String) imageChoiceBox.getValue();
-        Date d = new Date();
-        System.out.println(d + "---> Shows " + image);
+        String image = (String)imageChoiceBox.getValue();
 
         try{
             if(!image.isEmpty() || !image.isBlank()){
                 errorMessage.setOpacity(0);
-                String fileName = image + ".jpg";
-                imageNameTextField.setText(fileName);
-                Image imageCurrent = new Image("/sample/img/"+fileName);
+                String image1 = image + ".jpg";
+                imageNameTextField.setText(image1);
+                Image imageCurrent = new Image("/sample/img/"+image1);
                 imageView.setImage(imageCurrent);
+
+                //saves the log
+                LogData logdata = new LogData();
+//                logDataNewSave.image = fileName;
+                logdata.image1 = showLogTextArea.getText();
+                Filehandling filehandling = new Filehandling();
+                filehandling.saveData(logdata);
             }
         }
         catch(NullPointerException e){
@@ -62,52 +67,22 @@ public class Controller {
         }
     }
 
-    @FXML
-    void showLog(MouseEvent event) throws java.io.IOException{
-        readData(); // read imageLog.txt
+    //TODO open .txt. when clicked on button showLog
+    @FXML //load()
+    void showLog(ActionEvent event) throws IOException {
+        showLogTextArea.setOpacity(1);
+        Filehandling filehandling = new Filehandling();
+        LogData logdata;
+        logdata = filehandling.loadData();
+        showLogTextArea.setText(logdata.image1);
+        showLogTextArea.appendText("Hello");
     }
 
     @FXML
-    void addEventToLog(MouseEvent event) throws IOException {
-        System.out.println("ACTION: showImageButton clicked!");
+    void addEventToLog(ActionEvent event) throws IOException {
+        System.out.print(" addEventToLog: showImageButton clicked! ");
+        System.out.print("clickCounter: " + clickCounter);
         clickCounter++;
-    }
-
-    public void writeData() throws java.io.IOException {
-        java.io.File file = new java.io.File("imageLog.txt");
-/*        if(file.exists()) {
-            System.out.println("File " + file + " already exists");
-        }
-*/
-        //Create a file
-        java.io.PrintWriter output = new java.io.PrintWriter(file);
-
-        // TODO this must be repeated every time the imageShowButton is clicked. - it shows the log for the recent image
-        //write formatted output to the file
-
-        for (int i = 0; i < clickCounter; i++) {
-            output.println("Event added to imageLog.txt");
-            Date dateLog = new Date();
-            output.println(dateLog + " ---> Shows test " + (String) imageChoiceBox.getValue());
-        }
-
-        //close the file
-        output.close();
-    }
-
-    public void readData() throws FileNotFoundException {
-        java.io.File file = new java.io.File("/imageLog.txt");
-
-        //Create a Scanner for the file
-        Scanner input = new Scanner(file);
-
-        //Read data from a file
-        while(input.hasNext()) {
-            String imageName = (String) imageChoiceBox.getValue();
-            Date d = new Date();
-            System.out.println(d + " ---> Shows " + imageName);
-        }
-        //Close the file
-        input.close();
+        System.out.print(" clickCounter++: " + clickCounter + " ");
     }
 }

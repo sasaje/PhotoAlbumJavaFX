@@ -1,6 +1,0 @@
-Event added to imageLog.txt
-Tue Dec 01 12:40:35 CET 2020 ---> Shows test Zebra
-Event added to imageLog.txt
-Tue Dec 01 12:40:35 CET 2020 ---> Shows test Zebra
-Event added to imageLog.txt
-Tue Dec 01 12:40:35 CET 2020 ---> Shows test Zebra
