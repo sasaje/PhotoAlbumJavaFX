@@ -41,7 +41,7 @@
             <Font name="Bodoni 72 Book" size="13.0" />
          </font>
       </TextField>
-      <Button fx:id="showImageButton" layoutX="27.0" layoutY="224.0" mnemonicParsing="false" onAction="#showImage" prefHeight="32.0" prefWidth="150.0" text="Show image">
+      <Button fx:id="showImageButton" layoutX="27.0" layoutY="224.0" mnemonicParsing="false" onAction="#showImage" prefHeight="32.0" prefWidth="150.0" style="-fx-background-color: #00CED1;" text="Show image">
          <font>
             <Font name="Bodoni 72 Book" size="13.0" />
          </font>
@@ -74,10 +74,15 @@
             <Font name="Bodoni 72 Book" size="13.0" />
          </font>
       </Button>
-      <Label fx:id="chosen" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1.0" layoutY="5.0" prefHeight="18.0" prefWidth="576.0" text="show added imageFilePath" textAlignment="RIGHT" textFill="#0077ff">
+      <Label fx:id="chosen" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="1.0" layoutY="5.0" opacity="0.0" prefHeight="18.0" prefWidth="576.0" text="show added imageFilePath" textAlignment="RIGHT" textFill="#2b5079">
          <font>
             <Font name="Bodoni 72 Oldstyle Book" size="14.0" />
          </font>
       </Label>
+      <Button fx:id="removeImageButton" layoutX="308.0" layoutY="27.0" mnemonicParsing="false" onAction="#removeImage" prefHeight="32.0" prefWidth="112.0" text="Remove image">
+         <font>
+            <Font name="Bodoni 72 Book" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

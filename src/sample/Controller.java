@@ -2,16 +2,12 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
-import javax.swing.*;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -40,6 +36,12 @@ public class Controller {
     private Button addImageButton;
 
     @FXML
+    private Button removeImageButton;
+
+    @FXML
+    private Label chooseImage;
+
+    @FXML
     private Label chosen;
 
     @FXML
@@ -52,13 +54,14 @@ public class Controller {
     private TextArea showLogTextArea;
 
     @FXML
-    void chooseImage(MouseEvent event) {
+    void chooseImage(){
+
     }
 
     @FXML
     void showImage(ActionEvent event) throws IOException{
-        //removes log
-        showLogTextArea.setOpacity(0);
+        chosen.setOpacity(0); // remove the newly added image path from top label chosen
+        showLogTextArea.setOpacity(0); // removes log
 
         //console log of events
         String image = (String)imageChoiceBox.getValue();
@@ -96,28 +99,27 @@ public class Controller {
         // show the cleared imagelog.txt
     }
 
-    //TODO - change the GUI to match the new imagelog.txt
     @FXML
     void clearLog(ActionEvent event) throws IOException {
         Filehandling filehandling = new Filehandling();
         filehandling.removeLog("imageLog.txt");
+
+        //TODO - update the GUI to match the new empty imagelog.txt
+        // it works in .txt
     }
 
-
-
     //add new image from img folder to the photo album
+    //TODO when image added show Image
     @FXML
     void addImage(ActionEvent event) {
-        Label chosen = new Label();
-/*        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open file dialog");
-*/
 
         Stage stage = (Stage)anchorPane.getScene().getWindow();
         FileChooser chooser = new FileChooser();
         File file = chooser.showOpenDialog(stage);
         if (file != null) {
+
             String fileAsString = file.toString();
+            chosen.setOpacity(1);
             chosen.setText("Chosen: " + fileAsString);
             Path p = Paths.get(fileAsString);
             String addedimageName = p.getFileName().toString();
@@ -132,8 +134,17 @@ public class Controller {
             chosen.setText(null);
         }
 
-//      imageChoiceBox.getItems().add("fileName");
+        //TODO call show image on this newly added image
+    }
 
+    //TODO remove Image from album permanent also when program closes
+    @FXML
+    void removeImage(ActionEvent event){
+        String imageToRemove = (String)imageChoiceBox.getValue();
+        imageChoiceBox.getItems().remove(imageToRemove);
 
+        //removes image from imageView and the imageTitle from imageNameTextField
+        imageView.setImage(null);
+        imageNameTextField.setText("");
     }
 }
