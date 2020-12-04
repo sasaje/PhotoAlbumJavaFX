@@ -11,7 +11,10 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Controller {
 
@@ -35,6 +38,9 @@ public class Controller {
 
     @FXML
     private Button addImageButton;
+
+    @FXML
+    private Label chosen;
 
     @FXML
     private AnchorPane anchorPane;
@@ -97,17 +103,36 @@ public class Controller {
         filehandling.removeLog("imageLog.txt");
     }
 
+
+
     //add new image from img folder to the photo album
     @FXML
     void addImage(ActionEvent event) {
-
-        FileChooser fileChooser = new FileChooser();
+        Label chosen = new Label();
+/*        FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open file dialog");
+*/
+
         Stage stage = (Stage)anchorPane.getScene().getWindow();
+        FileChooser chooser = new FileChooser();
+        File file = chooser.showOpenDialog(stage);
+        if (file != null) {
+            String fileAsString = file.toString();
+            chosen.setText("Chosen: " + fileAsString);
+            Path p = Paths.get(fileAsString);
+            String addedimageName = p.getFileName().toString();
 
-        fileChooser.showOpenDialog(stage);
+            //removes the .jpg from filepath
+            if (addedimageName.indexOf(".") > 0)
+                addedimageName = addedimageName.substring(0, addedimageName.lastIndexOf("."));
 
-//        imageChoiceBox.getItems().add("fileName");
+            imageChoiceBox.getItems().add(addedimageName);
+
+        } else {
+            chosen.setText(null);
+        }
+
+//      imageChoiceBox.getItems().add("fileName");
 
 
     }

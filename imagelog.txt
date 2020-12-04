@@ -1,0 +1,19 @@
+
+Fri Dec 04 13:03:31 CET 2020 ---> Giraffe.jpg
+Fri Dec 04 13:04:34 CET 2020 ---> Hippo.jpg
+Fri Dec 04 13:05:07 CET 2020 ---> Hippo.jpg
+Fri Dec 04 13:10:58 CET 2020 ---> Lion.jpg
+Fri Dec 04 13:12:48 CET 2020 ---> Hippo.jpg
+Fri Dec 04 13:14:33 CET 2020 ---> Hippo.jpg
+Fri Dec 04 13:16:45 CET 2020 ---> Lion.jpg
+Fri Dec 04 13:16:52 CET 2020 ---> Lion.jpg
+Fri Dec 04 13:21:10 CET 2020 ---> Lion.jpg
+Fri Dec 04 13:21:15 CET 2020 ---> Elephant.jpg
+Fri Dec 04 13:21:32 CET 2020 ---> Elephant.jpg
+Fri Dec 04 13:24:09 CET 2020 ---> Lion.jpg
+Fri Dec 04 13:24:16 CET 2020 ---> Antilope.jpg
+Fri Dec 04 13:24:20 CET 2020 ---> Rhino.jpg
+Fri Dec 04 13:24:22 CET 2020 ---> Antilope.jpg
+Fri Dec 04 13:26:28 CET 2020 ---> Rhino.jpg
+Fri Dec 04 13:26:30 CET 2020 ---> Antilope.jpg
+Fri Dec 04 13:26:44 CET 2020 ---> Elephant.jpg
