@@ -1,4 +1,9 @@
 
-Fri Dec 04 10:35:44 CET 2020 ---> Zebra.jpg
-Fri Dec 04 10:35:46 CET 2020 ---> Hippo.jpg
-Fri Dec 04 10:35:48 CET 2020 ---> Rhino.jpg
+Fri Dec 04 10:43:38 CET 2020 ---> Zebra.jpg
+Fri Dec 04 10:43:40 CET 2020 ---> Hippo.jpg
+Fri Dec 04 10:43:42 CET 2020 ---> Elephant.jpg
+Fri Dec 04 10:43:43 CET 2020 ---> Elephant.jpg
+Fri Dec 04 10:43:45 CET 2020 ---> Rhino.jpg
+Fri Dec 04 10:43:45 CET 2020 ---> Rhino.jpg
+Fri Dec 04 10:43:46 CET 2020 ---> Rhino.jpg
+Fri Dec 04 10:43:48 CET 2020 ---> Lion.jpg
