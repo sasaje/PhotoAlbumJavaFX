@@ -1,1 +1,4 @@
-Fri Dec 04 00:28:17 CET 2020 --- Shows test FriHello
+
+Fri Dec 04 10:35:44 CET 2020 ---> Zebra.jpg
+Fri Dec 04 10:35:46 CET 2020 ---> Hippo.jpg
+Fri Dec 04 10:35:48 CET 2020 ---> Rhino.jpg

@@ -10,8 +10,6 @@ package sample;
 import java.util.Date;
 
 public class LogData{
-//    public String image1 = imageChoiceBox.getValue();
     public String image1;
     public Date dateTime = new Date();
-    public String a;
 }

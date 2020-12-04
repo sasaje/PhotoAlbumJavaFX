@@ -8,8 +8,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.io.*;
 
-import static sample.Filehandling.clickCounter;
-
 public class Controller {
 
     @FXML
@@ -55,8 +53,7 @@ public class Controller {
 
                 //saves the log
                 LogData logdata = new LogData();
-//                logDataNewSave.image = fileName;
-                logdata.image1 = showLogTextArea.getText();
+                logdata.image1 = image1;
                 Filehandling filehandling = new Filehandling();
                 filehandling.saveData(logdata);
             }
@@ -67,22 +64,13 @@ public class Controller {
         }
     }
 
-    //TODO open .txt. when clicked on button showLog
+    //TODO open .txt. when clicked on button showLog from loadData()
     @FXML //load()
     void showLog(ActionEvent event) throws IOException {
         showLogTextArea.setOpacity(1);
         Filehandling filehandling = new Filehandling();
-        LogData logdata;
+        String logdata;
         logdata = filehandling.loadData();
-        showLogTextArea.setText(logdata.image1);
-        showLogTextArea.appendText("Hello");
-    }
-
-    @FXML
-    void addEventToLog(ActionEvent event) throws IOException {
-        System.out.print(" addEventToLog: showImageButton clicked! ");
-        System.out.print("clickCounter: " + clickCounter);
-        clickCounter++;
-        System.out.print(" clickCounter++: " + clickCounter + " ");
+        showLogTextArea.appendText(logdata);
     }
 }

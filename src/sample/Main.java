@@ -7,8 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.stage.Stage;
 
-import java.io.File;
-
 public class Main extends Application {
 
     @Override
@@ -17,13 +15,11 @@ public class Main extends Application {
         ChoiceBox imageChoiceBox = new ChoiceBox();
 
         //TODO set default value to "-- Select image --".
-        imageChoiceBox.getItems().add("-- Select image --");
         imageChoiceBox.getItems().add("Elephant");
         imageChoiceBox.getItems().add("Giraffe");
         imageChoiceBox.getItems().add("Lion");
         imageChoiceBox.getItems().add("Hippo");
         imageChoiceBox.getItems().add("Rhino");
-
 
         Parent root = FXMLLoader.load(getClass().getResource("photoAlbumGui.fxml"));
         primaryStage.setTitle("Photo Album");
