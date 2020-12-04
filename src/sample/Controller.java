@@ -2,10 +2,15 @@ package sample;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
 import java.io.*;
 
 public class Controller {
@@ -24,6 +29,15 @@ public class Controller {
 
     @FXML
     private Button logButton;
+
+    @FXML
+    private Button clearLogButton;
+
+    @FXML
+    private Button addImageButton;
+
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private Label errorMessage;
@@ -64,13 +78,37 @@ public class Controller {
         }
     }
 
-    //TODO open .txt. when clicked on button showLog from loadData()
-    @FXML //load()
+    @FXML //loadData()
     void showLog(ActionEvent event) throws IOException {
         showLogTextArea.setOpacity(1);
         Filehandling filehandling = new Filehandling();
         String logdata;
         logdata = filehandling.loadData();
         showLogTextArea.appendText(logdata);
+
+        // if log is cleared
+        // show the cleared imagelog.txt
+    }
+
+    //TODO - change the GUI to match the new imagelog.txt
+    @FXML
+    void clearLog(ActionEvent event) throws IOException {
+        Filehandling filehandling = new Filehandling();
+        filehandling.removeLog("imageLog.txt");
+    }
+
+    //add new image from img folder to the photo album
+    @FXML
+    void addImage(ActionEvent event) {
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open file dialog");
+        Stage stage = (Stage)anchorPane.getScene().getWindow();
+
+        fileChooser.showOpenDialog(stage);
+
+//        imageChoiceBox.getItems().add("fileName");
+
+
     }
 }

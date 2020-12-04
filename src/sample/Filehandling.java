@@ -8,7 +8,10 @@
 
 package sample;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Filehandling {
@@ -38,5 +41,12 @@ public class Filehandling {
         //Close the file
         return completeLog;
     }
-
+    public void removeLog(String filepath) throws FileNotFoundException {
+        PrintWriter output = new PrintWriter("imagelog.txt");
+        output.print("");
+        output.close();
+    }
 }
+
+
+
